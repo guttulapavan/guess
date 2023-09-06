@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Document</title > 
+</head> 
+ 
+ <style type="text/css"> 
+body{ 
+ 
+  text-align: center; 
+    background-image: url("https://images.unsplash.com/photo-1461958508236-9a742665a0d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80");
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+  padding-top: 150px;
+}  
+h2{ 
+ color: cyan;  
+ font-size: 60px; 
+} 
+h3{ 
+ color: mediumseagreen; 
+ font-size: 25px; 
+} 
+.container {
+
+    border: 1px solid #cccccc;
+
+    box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+
+    border-radius: 40px;
+
+    position: absolute;
+
+    top: 55%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 450px;
+
+    height: 400px;
+
+}
+button{
+  font-size: 1.5em;
+  background-color: deepskyblue;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 3em;
+  font-weight: 500;
+  cursor: pointer;
+}
+input[type="number"] {
+  height: 1%;
+  width: 10%;
+  padding: 1em;
+  font-size: 1em;
+  text-align: center;
+  border: 3px solid #adaeae;
+  border-radius: 0.3em;
+  outline: none;
+  appearance: text-field;
+  -moz-appearance: textfield;
+}
+
+
+</style> 
+<body> 
+ <link rel="stylesheet" href="guess.css"> 
+ <div class="container">
+<h2><i>Guess The Number</i></h2> 
+<h3><i><b>Guess The number between 1 to 100</b></i></h3> 
+<input type="number" id="guessInput"> 
+<button id="guessbtn">Guess</button> 
+<p id="msg"></p> 
+</div>
+</body> 
+<script>
+  var randomNumber=Math.floor(Math.random()*100)+1; 
+var attempts=0; 
+document.getElementById("guessbtn").addEventListener('click', function(){ 
+var guess=parseInt(document.getElementById("guessInput").value) 
+attempts++; 
+if(guess===randomNumber){ 
+displaymsg("Congratulations! You guessed the Number in " + attempts + "attempt") 
+document.getElementById("guessbtn").disabled=true; 
+} 
+else if(guess <randomNumber){ 
+displaymsg("Too low!try a higher number-") 
+} 
+else{  
+displaymsg("Too high!try a lower number.") 
+} 
+}); 
+function displaymsg(k){ 
+document.getElementById("msg").textContent=k; 
+}
+</script> 
+</html>
